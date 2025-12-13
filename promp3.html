@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Grill Banana - Auténtica Parrilla en Liberia, Guanacaste. Steakhouse & Burgers.">
+    <title>Grill Banana | Parrilla & Cortes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+      /* --- VARIABLES Y RESET --- */
+:root {
+    --primary: #fec300fe; /* Dorado */
+    --second: #fec30000; /* Dorado */
+    --bg-dark: #121212;
+    --bg-card: #1e1e1e;
+    --text-light: #f4f4f4;
+    --text-gray: #a0a0a0;
+    --whatsapp: #25D366;
+    --font-head: 'Montserrat', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- CLASES DE IDIOMA --- */
+.lang-en { display: none; }
+body.english-mode .lang-es { display: none; }
+body.english-mode .lang-en { display: inline-block; }
+body.english-mode div.lang-en, 
+body.english-mode p.lang-en, 
+body.english-mode h1.lang-en, 
+body.english-mode h2.lang-en, 
+body.english-mode h3.lang-en { display: block; }
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* --- UTILIDADES --- */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.section-padding { padding: 80px 0; }
+.text-center { text-align: center; }
+
+/* --- ARREGLO DEFINITIVO DE BOTONES (REEMPLAZAR ESTO) --- */
+
+/* Contenedor de los botones */
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Estilos base del botón */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    text-decoration: none; /* Quita subrayados */
+}
+
+/* --- BOTÓN 1: EL DORADO (VER MENÚ) --- */
+/* Estado Normal: Fondo Amarillo, Texto Negro */
+.btn-primary {
+    background-color: #d4af37 !important; 
+    border: 2px solid #d4af37 !important;
+    color: #000000 !important;
+}
+
+/* Aseguramos que las palabras dentro (inglés/español) sean negras */
+.btn-primary span {
+    color: #000000 !important;
+}
+
+/* Estado Hover: Fondo Transparente, Texto Amarillo */
+.btn-primary:hover {
+    background-color: transparent !important; /* <--- ESTO ES CLAVE */
+    color: #d4af37 !important;
+}
+
+.btn-primary:hover span {
+    color: #d4af37 !important; /* Texto cambia a amarillo */
+}
+
+
+/* --- BOTÓN 2: EL TRANSPARENTE (WHATSAPP) --- */
+/* Estado Normal: Fondo Transparente, Texto Blanco */
+.btn-outline {
+    background-color: transparent !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+}
+
+.btn-outline span {
+    color: #ffffff !important;
+}
+
+/* Estado Hover: Fondo Blanco, Texto Negro */
+.btn-outline:hover {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.btn-outline:hover span {
+    color: #000000 !important;
+}
+
+/* Ajuste para celulares (Responsive) */
+@media (max-width: 768px) {
+    .hero-btns {
+        flex-direction: column;
+        padding: 0 30px;
+        width: 100%;
+    }
+    .hero-btns .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* --- HEADER --- */
+header {
+    background-color: rgb(0, 0, 0);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+.nav-links a:hover { color: var(--primary); }
+
+.lang-switch {
+    cursor: pointer;
+    border: 1px solid #555;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.lang-active { color: var(--primary); }
+
+.hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
+
+/* --- HERO SECTION --- */
+#hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.hero-content h1 {
+    font-family: var(--font-head);
+    font-size: 3.5rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px #000;
+}
+.hero-content span { color: var(--primary); }
+
+/* Contenedor de Botones del Hero */
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* --- MENU SECTION --- */
+.section-title {
+    font-family: var(--font-head);
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-gray);
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+}
+
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid #444;
+    color: var(--text-gray);
+    padding: 10px 25px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background-color: var(--primary);
+    color: #000;
+    border-color: var(--primary);
+}
+
+.tab-content { display: none; animation: fadeIn 0.5s; }
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+
+.menu-item {
+    background-color: var(--bg-card);
+    border: 1px solid #333;
+    padding: 25px;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+.menu-item:hover { transform: translateY(-5px); border-color: var(--primary); }
+
+.item-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 10px; border-bottom: 1px dashed #444; padding-bottom: 10px;
+}
+.item-title { font-size: 1.2rem; font-weight: 900; }
+.item-price { color: var(--primary); font-weight: bold; font-size: 1.1rem; }
+.item-desc { font-size: 0.95rem; color: var(--text-gray); font-style: italic; margin-bottom: 15px; }
+.item-note { font-size: 0.8rem; color: #888; margin-top: 10px; display: block; }
+
+.sides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+.side-badge { background: #2a2a2a; padding: 8px; text-align: center; border-radius: 4px; font-size: 0.85rem; color: #ccc; }
+
+/* --- LOCATION & CTA --- */
+.location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.info-box { background: var(--bg-card); padding: 30px; border-radius: 8px; border-left: 4px solid var(--primary); }
+.info-item { margin-bottom: 20px; }
+.info-item h3 { color: var(--primary); margin-bottom: 5px; font-family: var(--font-head); }
+
+.map-frame iframe {
+    width: 100%; height: 400px; border: 0; border-radius: 8px;
+    filter: grayscale(100%) invert(92%) contrast(83%);
+}
+
+#cta {
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover; background-position: center; text-align: center;
+}
+.qr-mockup {
+    width: 150px; height: 150px; background: white; margin: 20px auto;
+    display: flex; align-items: center; justify-content: center; color: #000; border-radius: 10px;
+}
+
+/* --- FOOTER --- */
+footer { background-color: #000; padding: 50px 0 20px; border-top: 1px solid #222; }
+.footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; margin-bottom: 30px; text-align: center; }
+.footer-col { flex: 1; min-width: 250px; }
+.social-links a { font-size: 1.5rem; margin: 0 10px; color: var(--text-gray); }
+.social-links a:hover { color: var(--primary); }
+.copyright { text-align: center; border-top: 1px solid #222; padding-top: 20px; color: #666; font-size: 0.8rem; }
+
+/* --- FLOAT BUTTON --- */
+.float-wa {
+    position: fixed; width: 60px; height: 60px; bottom: 25px; right: 25px;
+    background-color: var(--whatsapp); color: #FFF; border-radius: 50px;
+    text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    z-index: 9999; display: flex; align-items: center; justify-content: center; transition: 0.3s;
+}
+.float-wa:hover { transform: scale(1.1); background-color: #1ebe57; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- MEDIA QUERIES (RESPONSIVE) --- */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.5rem; }
+    .location-grid { grid-template-columns: 1fr; }
+    .hamburger { display: block; color: var(--text-light); }
+    
+    .nav-links {
+        position: fixed; top: 70px; right: -100%; background-color: var(--bg-dark);
+        flex-direction: column; width: 100%; text-align: center; padding: 40px 0;
+        transition: 0.4s; border-bottom: 1px solid #333;
+    }
+    .nav-links.active { right: 0; }
+
+    /* Ajuste de botones en celular */
+    .hero-btns {
+        flex-direction: column;
+        padding: 0 30px;
+        width: 100%;
+    }
+    .hero-btns .btn {
+        width: 100%;
+        text-align: center;
+    }
+}  
+ 
+/* --- BOTÓN VERDE GIGANTE (SECCIÓN FINAL) --- */
+.btn-whatsapp-cta {
+    background-color: #25D366 !important; /* Verde Oficial */
+    color: #ffffff !important; /* Texto Blanco */
+    font-size: 1.2rem;
+    padding: 15px 40px;
+    border-radius: 50px; /* Bordes redondeados */
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); /* Sombra verde brillante */
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Efecto al pasar el mouse */
+.btn-whatsapp-cta:hover {
+    background-color: #1ebe57 !important; /* Verde un poco más oscuro */
+    transform: translateY(-3px); /* Se levanta un poco */
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); /* Más brillo */
+    color: #ffffff !important;
+}
+
+/* Asegurar que el texto interno (span) también sea blanco */
+.btn-whatsapp-cta span {
+    color: #ffffff !important;
+}
+ 
+ </style>
+</head>
+<body>
+
+    <a href="https://wa.me/50688686838" class="float-wa" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="logo-grill-banana.png" alt="Logo" style="height: 60px; filter: invert(1);">
+                GRILL BANANA
+            </div>
+            
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li>
+                    <a href="#hero" onclick="toggleMenu()">
+                        <span class="lang-es">Inicio</span>
+                        <span class="lang-en">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#menu" onclick="toggleMenu()">
+                        <span class="lang-es">Menú</span>
+                        <span class="lang-en">Menu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#location" onclick="toggleMenu()">
+                        <span class="lang-es">Ubicación</span>
+                        <span class="lang-en">Location</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <div class="lang-switch" onclick="toggleLanguage()">
+                        <span id="label-es" class="lang-active">ES</span> | 
+                        <span id="label-en">EN</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container hero-content">
+            <h1 class="lang-es">EL FUEGO DE <br><span>GUANACASTE</span></h1>
+            <h1 class="lang-en">THE FIRE OF <br><span>GUANACASTE</span></h1>
+            
+            <p class="lang-es">Auténtica parrilla, cortes premium y el mejor ambiente en Liberia.</p>
+            <p class="lang-en">Authentic grill, premium cuts, and the best atmosphere in Liberia.</p>
+            
+            
+           <div class="hero-btns">
+    <a href="#menu" class="btn btn-primary">
+        <span class="lang-es">Ver Menú Completo</span>
+        <span class="lang-en">View Full Menu</span>
+    </a>
+    
+    <a href="https://wa.me/50688686838" class="btn btn-outline" target="_blank">
+        <span class="lang-es">Ordenar por WhatsApp</span>
+        <span class="lang-en">Order via WhatsApp</span>
+    </a>
+</div>
+</div>
+</div>
+            
+        </div>
+    </section>
+
+    <section id="menu" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-es">Nuestro Menú</span>
+                <span class="lang-en">Our Menu</span>
+            </h2>
+            <p class="section-subtitle">
+                <div class="text-center" style="margin-bottom: 20px;">
+                    <a href="menu carta26_compressed.pdf" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 20px;">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="lang-es"> Descargar Menú en PDF</span>
+                        <span class="lang-en"> Download PDF Menu</span>
+                     </a>
+                </div>
+            </p>
+
+            <div class="tabs-container">
+    <button class="tab-btn active" onclick="openTab(event, 'carnes')">
+        <span class="lang-es">Carnes</span><span class="lang-en">Steaks</span>
+    </button>
+    <button class="tab-btn" onclick="openTab(event, 'costillas')">
+        <span class="lang-es">Costillas</span><span class="lang-en">Ribs</span>
+    </button>
+    <button class="tab-btn" onclick="openTab(event, 'parrilladas')">
+        <span class="lang-es">Parrilladas</span><span class="lang-en">Mixed Grill</span>
+    </button>
+    <button class="tab-btn" onclick="openTab(event, 'mariscos')">
+        <span class="lang-es">Mariscos</span><span class="lang-en">Seafood</span>
+    </button>
+    <button class="tab-btn" onclick="openTab(event, 'hamburguesas')">Burgers</button>
+    <button class="tab-btn" onclick="openTab(event, 'varios')">
+        <span class="lang-es">Varios</span><span class="lang-en">Others</span>
+    </button>
+    <button class="tab-btn" onclick="openTab(event, 'extras')">
+        <span class="lang-es">Guarniciones</span><span class="lang-en">Sides</span>
+    </button>
+    <button class="tab-btn" onclick="openTab(event, 'bebidas')">
+        <span class="lang-es">Bebidas</span><span class="lang-en">Drinks</span>
+    </button>
+</div>
+
+            <div id="carnes" class="tab-content" style="display: block;">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            
+                            <span class="item-title lang-es" >Arrachera</span>
+                            <span class="item-title lang-en" >Flank Steak</span>
+                            <span class="item-price">₡10000</span>
+                        </div>
+                        <!--
+                        <p class="item-desc">
+                            <span class="lang-es">Corte jugoso y lleno de sabor.</span>
+                            <span class="lang-en">Juicy and flavorful cut (Skirt Steak).</span>
+                        </p> -->
+                        <span class="item-note">
+                            <span class="lang-es">* Incluye 2 acompañamientos a elegir.</span>
+                            <span class="lang-en">* Includes 2 sides of your choice.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                        
+                            <span class="item-title lang-es" >Churrasco</span>
+                            <span class="item-title lang-en" >Skirt Steak</span>
+                            <span class="item-price">₡11000</span>
+                        </div>
+                        <!-- <p class="item-desc">
+                            <span class="lang-es">Clásico corte argentino.</span>
+                            <span class="lang-en">Classic Argentine cut (Sirloin).</span>
+                        </p> -->
+                        <span class="item-note">
+                            <span class="lang-es">* Incluye 2 acompañamientos a elegir.</span>
+                            <span class="lang-en">* Includes 2 sides of your choice.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title">Delmonico</span>
+                            <span class="item-price">₡12500</span>
+                        </div>
+                        <!--
+                        <p class="item-desc">
+                            <span class="lang-es">Corte suave con excelente marmoleo.</span>
+                            <span class="lang-en">Tender cut with excellent marbling (Ribeye).</span>
+                        </p> -->
+                        <span class="item-note">
+                            <span class="lang-es">* Incluye 2 acompañamientos a elegir.</span>
+                            <span class="lang-en">* Includes 2 sides of your choice.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title">T-Bone</span>
+                            <span class="item-price">₡17000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">* Incluye 2 acompañamientos a elegir.</span>
+                            <span class="lang-en">* Includes 2 sides of your choice.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title">Tomahawk</span>
+                            <span class="item-price">₡24000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">* Incluye 2 acompañamientos a elegir.</span>
+                            <span class="lang-en">* Includes 2 sides of your choice.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                        
+                            <span class="item-title lang-es" >Punta de Solomo</span>
+                            <span class="item-title lang-en" >Sirloin Cap</span>
+                            
+                            <span class="item-price">₡11000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">* Incluye 2 acompañamientos a elegir.</span>
+                            <span class="lang-en">* Includes 2 sides of your choice.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es" >Ribeye con hueso</span>
+                            <span class="item-title lang-en" >Ribeye with Bone</span>
+                            <span class="item-price">₡16000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">* Incluye 2 acompañamientos a elegir.</span>
+                            <span class="lang-en">* Includes 2 sides of your choice.</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="costillas" class="tab-content">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Costilla de Cerdo</span>
+                            <span class="item-title lang-en">Pork Ribs</span>
+                            <span class="item-price">₡10000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">* Incluye 2 guarniciones a elegir.</span>
+                            <span class="lang-en">* Includes 2 sides of your choice.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Costilla de Cordero</span>
+                            <span class="item-title lang-en">Lamb Ribs</span>
+                            <span class="item-price">₡9000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">* Incluye 2 guarniciones a elegir.</span>
+                            <span class="lang-en">* Includes 2 sides of your choice.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Asado de Tira</span>
+                            <span class="item-title lang-en"> Strip Roast</span>
+                            <span class="item-price">₡9000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">* Incluye 2 guarniciones a elegir.</span>
+                            <span class="lang-en">* Includes 2 sides of your choice.</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="parrilladas" class="tab-content">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Parrillada Mixta #1</span>
+                            <span class="item-title lang-en"> Mixed Grill #1</span>
+                            <span class="item-price">₡16000</span>
+                        </div>
+                        <p class="item-desc lang-es">Arrachera, pechuga de pollo, chorizo criollo y salchichón parrillero.</p>
+                        <p class="item-desc lang-en">Flank Steak, chicken breast, creole chorizo and grilled sausage.</p>
+                        <span class="item-note">
+                            <span class="lang-es">* Incluye 2 acompañamientos a elegir.</span>
+                            <span class="lang-en">* Includes 2 sides of your choice.</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Parrillada Mixta #2</span>
+                            <span class="item-title lang-en"> Mixed Grill #2</span>
+                            <span class="item-price">₡20000</span>
+                        </div>
+                        <p class="item-desc lang-es">Arrachera, pechuga de pollo, lomo de cerdo, chorizo criollo y salchichón parrillero.</p>
+                        <p class="item-desc lang-en">Skirt steak, chicken breast, Pork loin, creole chorizo and grilled sausage.</p>
+                        <span class="item-note">
+                            <span class="lang-es">* Incluye 2 acompañamientos a elegir.</span>
+                            <span class="lang-en">* Includes 2 sides of your choice.</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mariscos" class="tab-content">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Camaron</span>
+                            <span class="item-title lang-en">Shrimps</span>
+                            <p class="item-desc">
+                            <span class="lang-es">A la mantequilla o cremoso</span>
+                            <span class="lang-en">Buttery or creamy</span>
+                            </p>
+                            <span class="item-price">₡10000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">* Acompañado con pure de papa y ensalada verde.</span>
+                            <span class="lang-en">* Served with mashed potatoes and a green salad.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Salmón</span>
+                            <span class="item-title lang-en">Salmon</span>
+                            <span class="item-price">₡9000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">* Acompañado con pure de papa y ensalada verde.</span>
+                            <span class="lang-en">* Served with mashed potatoes and a green salad.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Pulpo</span>
+                            <span class="item-title lang-en">Octopus</span>
+                            <p class="item-desc">
+                            <span class="lang-es">A la parrilla</span>
+                            <span class="lang-en">Grilled</span>
+                            </p>
+                            <span class="item-price">₡12000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">* Acompañado con papa salteadas y ensalada verde.</span>
+                            <span class="lang-en">* Served with mashed potatoes and a green salad.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Salmon con</span>
+                            <span class="item-title lang-en">Salmon with</span>
+                            <p class="item-desc">
+                            <span class="lang-es">camarones y pulpo</span>
+                            <span class="lang-en">Shrimps and octupus</span>
+                            </p>
+                            <span class="item-price">₡22000</span>
+                        </div>
+                        <span class="item-note">
+                             <span class="lang-es">* Acompañado con papa salteadas y ensalada verde.</span>
+                            <span class="lang-en">* Served with mashed potatoes and a green salad.</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="hamburguesas" class="tab-content">
+                <div class="text-center" style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #333;">
+                    <h4 class="lang-es" style="color: var(--primary); font-family: var(--font-head); letter-spacing: 1px; margin-bottom: 5px;">
+                        PAN MASA MADRE • CARNE BRANGUS 100% A LA PARRILLA
+                    </h4>
+                    <h4 class="lang-en" style="color: var(--primary); font-family: var(--font-head); letter-spacing: 1px; margin-bottom: 5px;">
+                        SOURDOUGH BUN • 100% GRILLED BRANGUS BEEF
+                    </h4>
+
+                    <p class="lang-es" style="font-size: 0.9rem; color: #ccc;">
+                        ACOMPAÑADAS CON PAPAS O CAMOTES FRITOS
+                    </p>
+                    <p class="lang-en" style="font-size: 0.9rem; color: #ccc;">
+                        SERVED WITH FRENCH FRIES OR SWEET POTATO FRIES
+                    </p>
+                </div>
+
+
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Liberiana Burger</span>
+                            <span class="item-title lang-en">Liberiana Burger</span>
+                            
+                            <span class="item-price">₡7500</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">Torta 100% carne de res, salsa de queso, queso mozarella, jamon, tocineta, huevo al gusto, lechuga, tomate y cebolla caramelizada</span>
+                            <span class="lang-en">100% Beef Burger with Cheese Sauce, Mozzarella, Ham, Bacon, Egg (cooked to your preference), Lettuce, Tomato, and Caramelized Onions.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Cañera Burger</span>
+                            <span class="item-title lang-en">Cañera Burger</span>
+                            <span class="item-price">₡7500</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">Torta 100% carne de res, queso mozarella, aros de cebolla, tocineta y huevo al gusto.</span>
+                            <span class="lang-en">100% Beef Burger with Mozzarella, Onion Rings, Bacon, and Egg.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Casa de Barro Burger</span>
+                            <span class="item-title lang-en">Casa de Barro Burger</span>
+                            
+                            <span class="item-price">₡7500</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">Torta 100% carne de res, salsa de queso, queso mozarella, jamón, lechuga, tomate, cebolla caramelizada y tocineta.</span>
+                            <span class="lang-en">100% Beef Burger with Cheese Sauce, Mozzarella, Ham, Lettuce, Tomato, Caramelized Onions, and Bacon.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Nandayure Burger</span>
+                            <span class="item-title lang-en">Nandayure Burger</span>
+                            
+                            <span class="item-price">₡7500</span>
+                        </div>
+                        <span class="item-note">
+                             <span class="lang-es">Camarones en salsa de chimichurri argentino, queso mozarella, tocineta, lechuga y tomate.</span>
+                            <span class="lang-en">Shrimps in Argentine Chimichurri Sauce with Mozzarella, Bacon, Lettuce, and Tomato.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">La Cruz Burger</span>
+                            <span class="item-title lang-en">La Cruz Burger</span>
+                            
+                            <span class="item-price">₡9500</span>
+                        </div>
+                        <span class="item-note">
+                             <span class="lang-es">Torta 100 % carne de res, queso mozarella, camarones en salsa de chimichurri argentino, salsa de queso, queso mozarella, tocineta, lechuga y tomate.</span>
+                            <span class="lang-en">100% Beef Burger with Mozzarella, Shrimps in Argentine Chimichurri Sauce, Cheese Sauce, Mozzarella, Bacon, Lettuce, and Tomato.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Santa Clara Burger</span>
+                            <span class="item-title lang-en">Santa Clara Burger</span>
+                            
+                            <span class="item-price">₡7500</span>
+                        </div>
+                        <span class="item-note">
+                             <span class="lang-es">Torta 100% carne de res, salsa de queso,queso tipo mozarella, piña asada, tomate,cebolla caramelizada, hongos y tocineta.</span>
+                            <span class="lang-en">100% Beef Burger with Cheese Sauce, Mozzarella-style Cheese, Grilled Pineapple, Tomato, Caramelized Onions, Mushrooms, and Bacon.</span>
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title">Bagaceña Burger</span>
+                            <span class="item-price">₡7500</span>
+                        </div>
+                        <span class="item-note">
+                             <span class="lang-es">Torta 100% res, queso mozarella, queso americano, tocineta y aderezo de queso pimienta.</span>
+                            <span class="lang-en">100% Beef patty, Mozzarella, American cheese, bacon, and pepper jack cheese dressing.</span>
+                        </span>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Pechuga de Pollo</span>
+                            <span class="item-title lang-en">Chicken Breast Burger</span>
+                            <span class="item-price">₡7500</span>
+                        </div>
+                        <span class="item-note">
+                             <span class="lang-es">Filet de pechuga de pollo, piña asada, lechuga, tomate, cebolla caramelizada, queso mozarella y jamón.</span>
+                            <span class="lang-en">Grilled chicken breast, grilled pineapple, lettuce, tomato, caramelized onion, Mozzarella, and ham.</span>
+                        </span>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title">Tila Burger</span>
+                            <span class="item-price">₡9500</span>
+                        </div>
+                        <span class="item-note">
+                             <span class="lang-es">Doble torta de res, piña asada, doble jamón, doble queso mozarella y tocineta.</span>
+                            <span class="lang-en">Double beef patty, grilled pineapple, double ham, double Mozzarella, and bacon.</span>
+                        </span>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title">Nicoyana Burger</span>
+                            <span class="item-price">₡7500</span>
+                        </div>
+                        <span class="item-note">
+                             <span class="lang-es">Torta 100% res a la parrilla, queso mozarella, tocineta, cebolla caramelizada, hongos, lechuga y tomate.</span>
+                            <span class="lang-en">Grilled 100% beef patty, Mozzarella, bacon, caramelized onion, mushrooms, lettuce, and tomato.</span>
+                        </span>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Especial de la Casa</span>
+                            <span class="item-title lang-en">House Special</span>
+                            <span class="item-price">₡7500</span>
+                        </div>
+                        <span class="item-note">
+                             <span class="lang-es">Torta 100% res, piña asada, salsa de queso, queso mozarella, jamón, tocineta, lechuga, tomate, cebolla caramelizada, zanahoria y pepino.</span>
+                            <span class="lang-en">100% Beef patty, grilled pineapple, cheese sauce, Mozzarella, ham, bacon, lettuce, tomato, caramelized onion, carrot, and fresh cucumber.</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="varios" class="tab-content">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Ensalada Banana Grill</span>
+                            <span class="item-title lang-en">Banana Grill Salad</span>
+                            <span class="item-price">₡7000</span>
+                        </div>
+                        <p class="item-desc">
+                            <span class="lang-es">Con Pollo a la plancha o al Grill.</span>
+                            <span class="lang-en">With Grilled or Griddled Chicken.</span>
+                        </p>
+                        <span class="item-note">
+                            <span class="lang-es">Lechuga, zanahoria, pepino, maíz dulce, piña asada y tomate.</span>
+                            <span class="lang-en">Lettuce, carrot, cucumber, sweet corn, grilled pineapple, and tomato.</span>
+                        </span>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Mar y Tierra</span>
+                            <span class="item-title lang-en">Surf & Turf</span>
+                            <span class="item-price">₡16000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">Jugoso Ribeye asado con camarones en salsa chimichurri. Incluye puré de papas y ensalada verde.</span>
+                            <span class="lang-en">Juicy grilled Ribeye with shrimps in chimichurri sauce. Includes mashed potatoes and green salad.</span>
+                        </span>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title">Hot Dog</span>
+                            <span class="item-price">₡4000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">Acompañado de papas fritas.</span>
+                            <span class="lang-en">Served with french fries.</span>
+                        </span>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title">Patacones</span>
+                            <span class="item-title lang-en">Fried Plantains</span>
+                            <span class="item-price">₡6000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">Con frijoles molidos, carne mechada, queso y salsa de aguacate.</span>
+                            <span class="lang-en">With refried beans, shredded beef, cheese, and avocado salsa.</span>
+                        </span>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Dedos de Pollo</span>
+                            <span class="item-title lang-en">Chicken Fingers</span>
+                            <span class="item-price">₡6000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">Con papas fritas o camotes.</span>
+                            <span class="lang-en">With french fries or sweet potato fries.</span>
+                        </span>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Choripan Ahumado</span>
+                            <span class="item-title lang-en">Smoked Chorizo Sandwich</span>
+                            <span class="item-price">₡5500</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">Con papas o camotes fritos en gajos.</span>
+                            <span class="lang-en">With wedge fries or sweet potato fries.</span>
+                        </span>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Choripan Mozzarella y Piña</span>
+                            <span class="item-title lang-en">Mozzarella & Pineapple Choripan</span>
+                            <span class="item-price">₡7000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">Chorizo ahumado con queso y piña. Acompañado de papas o camotes.</span>
+                            <span class="lang-en">Smoked chorizo with cheese and pineapple. Served with fries or sweet potatoes.</span>
+                        </span>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Sándwich de Pollo al Pesto</span>
+                            <span class="item-title lang-en">Pesto Chicken Sandwich</span>
+                            <span class="item-price">₡8000</span>
+                        </div>
+                        <span class="item-note">
+                            <span class="lang-es">Pan de masa madre, lechuga, tomate y queso mozarella.</span>
+                            <span class="lang-en">Sourdough bread, lettuce, tomato, and Mozzarella cheese.</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="extras" class="tab-content">
+                <div class="sides-grid">
+                    <div class="side-badge lang-es">Aros de Cebolla</div>
+                    <div class="side-badge lang-es">Camotes Fritos</div>
+                    <div class="side-badge lang-es">Chimichurri Argentino</div>
+                    <div class="side-badge lang-es">Elote Asado</div>
+                    <div class="side-badge lang-es">Ensalada Verde</div>
+                    <div class="side-badge lang-es">Espaguetti</div>
+                    <div class="side-badge lang-es">Papa Asada</div>
+                    <div class="side-badge lang-es">Papas Fritas</div>
+                    <div class="side-badge lang-es">Papas Salteadas</div>
+                    <div class="side-badge lang-es">Piña Asada</div>
+                    <div class="side-badge lang-es">Pure de camote o papa</div>
+                    <div class="side-badge lang-es">Vegetales (Zanahoria, Brocoli, vainicas)</div>
+                    
+                    <div class="side-badge lang-en">Onion Rings</div>
+                    <div class="side-badge lang-en">Sweet Potato Fries</div>
+                    <div class="side-badge lang-en">Argentinian Chimichurri</div>
+                    <div class="side-badge lang-en">Grilled Corn</div>
+                    <div class="side-badge lang-en">Green Salad</div>
+                    <div class="side-badge lang-en">Spaghetti</div>
+                    <div class="side-badge lang-en">Baked Potato</div>
+                    <div class="side-badge lang-en">French Fries</div>
+                    <div class="side-badge lang-en">Sautéed Potatoes</div>
+                    <div class="side-badge lang-en">Grilled Pineapple</div>
+                    <div class="side-badge lang-en">Mashed Sweet Potato or Potato</div>
+                    <div class="side-badge lang-en">Vegetables (Carrot, Broccoli, Green Beans)</div>
+                </div>
+            </div>
+
+            <div id="bebidas" class="tab-content">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Batidos Naturales</span>
+                            <span class="item-title lang-en">Natural Smoothies</span>
+                            <span class="item-price">₡2500</span>
+                        </div>
+                        <p class="item-desc">
+                            <span class="lang-es">Sabores de la casa</span>
+                            <span class="lang-en">House Flavors</span>
+                        </p>
+                        <span class="item-note">
+                            <strong style="color:var(--primary)">Grill Banana</strong> 
+                            <span class="lang-es">Maracuyá, Piña y Mango.</span>
+                            <span class="lang-en">Passion Fruit,Pineapple & Mango.</span><br>
+
+                            <strong style="color:var(--primary)">Amor de Temporada:</strong> 
+                            <span class="lang-es">Maracuyá.</span>
+                            <span class="lang-en">Passion Fruit.</span><br>
+
+                            <strong style="color:var(--primary)">Delicias:</strong> 
+                            <span class="lang-es">Piña con Albahaca.</span>
+                            <span class="lang-en">Pineapple with Basil.</span><br>
+
+                            <strong style="color:var(--primary)">Capulín:</strong> 
+                            <span class="lang-es">Limonada con Hierbabuena.</span>
+                            <span class="lang-en">Lemonade with Mint.</span><br>
+
+                            <strong style="color:var(--primary)">Moracia:</strong> 
+                            <span class="lang-es">Limonada con Fresa.</span>
+                            <span class="lang-en">Strawberry Lemonade.</span><br>
+
+                            <strong style="color:var(--primary)">Condega:</strong> 
+                            <span class="lang-es">Maracuyá con Fresa.</span>
+                            <span class="lang-en">Passion Fruit with Strawberry.</span><br>
+
+                            <strong style="color:var(--primary)">Curubandé:</strong> 
+                            <span class="lang-es">Pitahaya.</span>
+                            <span class="lang-en">Dragon Fruit.</span><br>
+
+                            <strong style="color:var(--primary)">Victoria:</strong> 
+                            <span class="lang-es">Sandía.</span>
+                            <span class="lang-en">Watermelon.</span>
+                        </span>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Gaseosa (Vidrio)</span>
+                            <span class="item-title lang-en">Soda (Glass Bottle)</span>
+                            <span class="item-price">₡1500</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Gaseosa (Desechable)</span>
+                            <span class="item-title lang-en">Soda (Plastic Bottle)</span>
+                            <span class="item-price">₡1750</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-title lang-es">Copa de Sangría</span>
+                            <span class="item-title lang-en">Sangria Glass</span>
+                            <span class="item-price">₡3500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="location" class="section-padding" style="background-color: #0d0d0d;">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-es">Ubicación & Horario</span>
+                <span class="lang-en">Location & Hours</span>
+            </h2>
+            <div class="location-grid">
+                <div class="info-box">
+                    <div class="info-item">
+                        <h3><i class="far fa-clock"></i> <span class="lang-es">Horario</span><span class="lang-en">Hours</span></h3>
+                        <p><span class="lang-es">Abierto todos los días</span><span class="lang-en">Open every day</span></p>
+                        <p style="font-size: 1.2rem; font-weight: bold; color: var(--text-light);">6:30 PM - 10:00 PM</p>
+                    </div>
+                    <div class="info-item">
+                        <h3><i class="fas fa-map-marker-alt"></i> <span class="lang-es">Dirección</span><span class="lang-en">Address</span></h3>
+                        <p>Barrio Capulin, Liberia, Guanacaste, Costa Rica.</p>
+                    </div>
+                    <div class="info-item">
+                        <h3><i class="fas fa-phone-alt"></i> <span class="lang-es">Contacto</span><span class="lang-en">Contact</span></h3>
+                        <p>+506 8868 6838</p>
+                    </div>
+                </div>
+                <div class="map-frame">
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3921.4429058896885!2d-85.46040822519738!3d10.622658989516918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f757d27f4882a87%3A0xe94283000f88de0e!2sGrill%20Banana!5e0!3m2!1ses!2scr!4v1763692358377!5m2!1ses!2scr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="section-padding">
+        <div class="container cta-box">
+            <h2 style="font-family: var(--font-head); font-size: 2.5rem; margin-bottom: 15px;">
+                <span class="lang-es">Ordena Fácil y Rápido</span>
+                <span class="lang-en">Order Easy & Fast</span>
+            </h2>
+            <p>
+                <span class="lang-es">Escanea el código QR o haz clic en el botón para hablar directamente con nosotros.</span>
+                <span class="lang-en">Scan the QR code or click the button to chat with us directly.</span>
+            </p>
+            
+            <div class="qr-mockup">
+                <i class="fas fa-qrcode" style="font-size: 80px;"></i>
+            </div>
+            
+            <a href="https://wa.me/50688686838" class="btn btn-whatsapp-cta" target="_blank">
+                <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> 
+                <span class="lang-es">Ordenar al 8868-6838</span>
+                <span class="lang-en">Order at 8868-6838</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    
+                    <h3 style="color: white; font-family: var(--font-head); margin-bottom: 15px;">GRILL BANANA</h3>
+                </div>
+                <div class="footer-col">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Grill Banana. Todos los derechos reservados. Liberia, Guanacaste.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Lógica de cambio de idioma
+        function toggleLanguage() {
+            document.body.classList.toggle('english-mode');
+            const isEnglish = document.body.classList.contains('english-mode');
+            
+            // Actualizar estilo del switch
+            document.getElementById('label-es').classList.toggle('lang-active', !isEnglish);
+            document.getElementById('label-en').classList.toggle('lang-active', isEnglish);
+        }
+
+        // Pestañas (Tabs)
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            if (evt) evt.currentTarget.className += " active";
+        }
+
+        // Menú Móvil
+        function toggleMenu() {
+            var nav = document.getElementById("navLinks");
+            nav.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
